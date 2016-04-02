@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+    {% load pages_tags mezzanine_tags i18n staticfiles %}
+
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+        <meta name="description" content="{% block meta_description %}{% endblock %}">
+        <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+        {% ifinstalled mezzanine.blog %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+        {% endifinstalled %}
+
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        {% compress css %}
+        <link href="{% static "assets/css/bootstrap.3.1.1.css" %}" rel="stylesheet" />
+        <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet" />
+        <link href="{% static "assets/css/style.css" %}" rel="stylesheet" />
+        {% block extra_css %}{% endblock %}
+        {% endcompress %}
+
+        <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+              <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        {% compress js %}
+        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+        <script src="{% static "assets/js/jquery.js" %}"></script>
+        <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "assets/js/custom.js" %}"></script>
+        {% block extra_js %}{% endblock %}
+        {% endcompress %}
+
+        <!--[if lt IE 9]>
+            <script src="{% static "js/html5shiv.js" %}" %}"></script>
+            <script src="{% static "js/respond.min.js" %}" %}"></script>
+        <![endif]-->
+
+        {% block extra_head %}{% endblock %}
+    </head>
+
+    <body id="{% block body_id %}body{% endblock %}">
+
+        <div class="loader"></div>
+
+        <!-- NAV SECTION -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    {% page_menu "pages/menus/dropdown.html" %}
+                </div>
+
+            </div>
+        </div>
+        <!--END NAV SECTION -->
+        <!-- HEADER SECTION -->
+        <div id="header-section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12">
+                        <h1><strong>{{ settings.SITE_TITLE }} </strong>          
+
+                        </h1>
+                        <br /> <br /> <br />
+                        <h2> GO LIVE </h2>
+                        <br />
+                        <h3>  EXPLORE<a href="#about-section">  <i class="fa fa-flask down-icon"></i> </a> AWESOME </h3>
+                        <br /><br />
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div> 
+        <!--END HEADER SECTION -->
+        <!-- BASIC INFO SECTION -->
+        <div id="basic-info">
+            <div class="container">
+
+                <div class="row main-top-margin text-center">
+                    <div class="col-md-8 col-md-offset-2 " >
+                        <h1>Welcome Guest, We Are For You</h1>
+                        <h4>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </h4>
+                    </div>
+                </div>
+                <div class="row main-low-margin text-center">
+                    <div class="col-md-4 col-sm-6" >
+                        <div class="text-center">
+                            <i class="fa fa-bolt fa-5x color-red"></i>
+                            <h4>Responsive Design</h4>
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien. Aliquam erat volutpat.
+                            Quisque eu ante at tortor imperdiet gravida nec sed turpis. Phasellus augue augue.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6"  >
+                        <div class="text-center">
+                            <i class="fa fa-comments fa-5x color-green"></i>
+                            <h4>24x7 Support</h4>
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien. Aliquam erat volutpat.
+                            Quisque eu ante at tortor imperdiet gravida nec sed turpis. Phasellus augue augue.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6" >
+                        <div class="text-center">
+                            <i class="fa fa-desktop fa-5x color-light-blue"></i>
+                            <h4>Awesome Display</h4>
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien. Aliquam erat volutpat.
+                            Quisque eu ante at tortor imperdiet gravida nec sed turpis. Phasellus augue augue.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row main-low-margin text-center">
+
+                    <div class="col-md-12 col-sm-12  text-justify" >
+                        <h3> Lorem ipsum dolor sit amet Riopsh</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+
+                        </p>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="row main-low-margin text-center">
+
+
+                    <div class="col-md-8 col-sm-8   text-justify" >
+                        <h3> Lorem ipsum dolor sit amet Riopsh</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+
+                        </p>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+
+                        </p>
+                    </div>
+                    <div class="col-md-3  " >
+                        <img class="img-circle" src="{% static "assets/img/team/team1.png" %}" alt="">
+                        <h4><strong>Jhon Deo Alex</strong> </h4>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. 
+
+                        </p>
+                        <p>
+                        {% if settings.SOCIAL_LINK_FACEBOOK %}
+                        <a href="{{ settings.SOCIAL_LINK_FACEBOOK }}"><i class="fa fa-facebook-square fa-2x color-facebook"></i></a>
+                        {% endif %}
+                        {% if settings.SOCIAL_LINK_TWITTER %}
+                        <a href=""{{ settings.SOCIAL_TWITTER }}><i class="fa fa-twitter-square fa-2x color-twitter"></i></a>
+                        {% endif %}
+                        {% if settings.SOCIAL_LINK_LINKEDIN %}
+                        <a href=""{{ settings.SOCIAL_LINK_LINKEDIN }}><i class="fa fa-linkedin-square fa-2x color-linkedin"></i></a>
+                        {% endif %}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END BASIC INFO SECTION -->
+        <!--FOOTER SECTION -->
+        <div id="footer">
+            <div class="container">
+                <div class="row ">
+                    &copy; 2014 www.yourdomain.com | All Right Reserved 				
+
+                </div>
+
+            </div>
+
+        </div>  
+
+        {% include "includes/footer_scripts.html" %}
+    </body>
+</html>
