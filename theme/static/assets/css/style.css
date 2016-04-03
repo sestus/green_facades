@@ -402,12 +402,13 @@ color: #fff;
    ========================================================================== */
    
 
-#footer {
+#my_footer {
     margin-top:100px;
     background-color: #000; 
     color: #fff; 
     text-align: right; 
     padding: 10px 30px 10px 30px;
+    width:100%;
 }
 
 
@@ -426,3 +427,7 @@ color: #fff;
 max-width: 50%;
 }
 }
+
+#main_slider {padding-bottom:70px;	
+}
+

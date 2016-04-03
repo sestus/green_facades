@@ -1,0 +1,67 @@
+{% extends "pages/page.html" %}
+
+{% load static mezzanine_tags blog_tags i18n %}
+
+{% block all_content %}
+
+        <!-- BASIC INFO SECTION -->
+        <div id="basic-info">
+            <div class="container">
+                <div class="row main-top-margin text-center">
+                    <div class="col-md-8 col-md-offset-2 " >
+                        {% editable page.homepage.heading page.homepage.subheading %}
+                        <h1> {{ page.homepage.heading }} </h1>
+                        <h4>
+                            {{ page.homepage.subheading }}
+                        </h4>
+                        {% endeditable %}
+                    </div>
+                </div>
+
+                <div class="row main-low-margin text-center">
+                    {% for blurb in page.homepage.blurbs.all %}
+                    <div class="col-md-4 col-sm-6" >
+                        {% editable blurb.link blurb.icon blurb.title blurb.content %}
+                        <div class="text-center">
+                            <i class="fa {{ blurb.icon }} fa-5x color-red"></i>
+                            <h4>{{ blurb.title }}</h4>
+                            <p>
+                            {{ blurb.content }}
+                            </p>
+                        </div>
+                        {% endeditable %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row main-low-margin text-center">
+                    <div class="col-md-8 col-sm-8   text-justify" >
+                        {% editable page.homepage.content_heading page.homepage.content %}
+                        <h3>{{ page.homepage.content_heading }}</h3>
+                        {{ page.homepage.content|richtext_filters|safe }}
+                        {% endeditable %}
+
+                    </div>
+                    <div class="col-md-3  " >
+                        <img class="img-circle" src="{% static "assets/img/team/team1.png" %}" alt="">
+                        <h4><strong>Jhon Deo Alex</strong> </h4>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur nec nisl odio. 
+
+                        </p>
+                        <p>
+                        {% if settings.SOCIAL_LINK_FACEBOOK %}
+                        <a href="{{ settings.SOCIAL_LINK_FACEBOOK }}"><i class="fa fa-facebook-square fa-2x color-facebook"></i></a>
+                        {% endif %}
+                        {% if settings.SOCIAL_LINK_TWITTER %}
+                        <a href="{{ settings.SOCIAL_TWITTER }}"><i class="fa fa-twitter-square fa-2x color-twitter"></i></a>
+                        {% endif %}
+                        {% if settings.SOCIAL_LINK_LINKEDIN %}
+                        <a href="{{ settings.SOCIAL_LINK_LINKEDIN }}"><i class="fa fa-linkedin-square fa-2x color-linkedin"></i></a>
+                        {% endif %}
+                        </p>
+
+                    </div>
+                </div>
+
+{% endblock %}
