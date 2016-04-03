@@ -42,13 +42,13 @@
 
                     </div>
                     <div class="col-md-3  " >
-                        <img class="img-circle" src="{% static "assets/img/team/team1.png" %}" alt="">
-                        <h4><strong>Jhon Deo Alex</strong> </h4>
+                        {% editable page.homepage.team_name page.homepage.team_heading page.homepage.team_image %}
+                        <img class="img-circle" src=" {{ MEDIA_URL }}{% thumbnail page.homepage.team_image 180 180 %}" alt="">
+                        <h4><strong>{{ page.homepage.team_name  }}</strong> </h4>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Curabitur nec nisl odio. 
-
+                            {{ page.homepage.team_heading }}
                         </p>
+                        {% endeditable %}
                         <p>
                         {% if settings.SOCIAL_LINK_FACEBOOK %}
                         <a href="{{ settings.SOCIAL_LINK_FACEBOOK }}"><i class="fa fa-facebook-square fa-2x color-facebook"></i></a>

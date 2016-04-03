@@ -25,6 +25,12 @@ class HomePage(Page, RichText):
         default="About us!")
     latest_posts_heading = models.CharField(max_length=200,
         default="Latest Posts")
+    team_name = models.CharField(max_length=300,
+        default="Team Member name")
+    team_heading = models.CharField(max_length=300,
+        default="Team Slogun")
+    team_image = FileField(_("File"), max_length=200, format="Image",
+        upload_to=upload_to("vital_theme.PortfolioItemImage.file", "team image"))
 
     class Meta:
         verbose_name = _("Home page")
